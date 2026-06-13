@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | ML Engineer & Frontend Developer</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { zinc: { 950: '#070709' } },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'glow-pulse': 'glowPulse 6s infinite ease-in-out',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        glowPulse: {
+                            '0%, 100%': { opacity: 0.15, transform: 'scale(1) translate(-50%, -50%)' },
+                            '50%': { opacity: 0.3, transform: 'scale(1.15) translate(-45%, -45%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #070709; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #10b981, #059669); border-radius: 4px; }
+        html { scroll-padding-top: 5rem; }
+        .cyber-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(24, 24, 27, 0.5) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(24, 24, 27, 0.5) 1px, transparent 1px);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased overflow-x-hidden cyber-grid">
+
+    <nav class="fixed w-full z-50 bg-zinc-950/70 backdrop-blur-xl border-b border-zinc-900/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0">
+                    <a href="#home" class="text-2xl font-bold text-white tracking-tighter">
+                        Dev<span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">ML</span>.
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-zinc-400 hover:text-emerald-400 transition-colors duration-300 font-medium">Home</a>
+                    <a href="#about" class="text-zinc-400 hover:text-emerald-400 transition-colors duration-300 font-medium">About</a>
+                    <a href="#services" class="text-zinc-400 hover:text-emerald-400 transition-colors duration-300 font-medium">Services</a>
+                    <a href="#skills" class="text-zinc-400 hover:text-emerald-400 transition-colors duration-300 font-medium">Skills</a>
+                    <a href="#projects" class="text-zinc-400 hover:text-emerald-400 transition-colors duration-300 font-medium">Projects</a>
+                    <a href="#contact" class="text-zinc-400 hover:text-emerald-400 transition-colors duration-300 font-medium">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-zinc-300 hover:text-emerald-400 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-zinc-900">
+            <div class="px-4 pt-2 pb-6 space-y-2 text-center">
+                <a href="#home" class="block text-zinc-400 hover:text-emerald-400 hover:bg-zinc-900/50 rounded-md px-3 py-2.5 transition">Home</a>
+                <a href="#about" class="block text-zinc-400 hover:text-emerald-400 hover:bg-zinc-900/50 rounded-md px-3 py-2.5 transition">About</a>
+                <a href="#services" class="block text-zinc-400 hover:text-emerald-400 hover:bg-zinc-900/50 rounded-md px-3 py-2.5 transition">Services</a>
+                <a href="#skills" class="block text-zinc-400 hover:text-emerald-400 hover:bg-zinc-900/50 rounded-md px-3 py-2.5 transition">Skills</a>
+                <a href="#projects" class="block text-zinc-400 hover:text-emerald-400 hover:bg-zinc-900/50 rounded-md px-3 py-2.5 transition">Projects</a>
+                <a href="#contact" class="block text-zinc-400 hover:text-emerald-400 hover:bg-zinc-900/50 rounded-md px-3 py-2.5 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <div class="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-emerald-500/10 blur-[150px] rounded-full pointer-events-none animate-glow-pulse"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 animate-fade-in-up">
+            <h2 class="text-emerald-400 font-semibold tracking-widest mb-4 text-xs md:text-sm uppercase bg-emerald-500/5 border border-emerald-500/10 px-4 py-1.5 rounded-full inline-block backdrop-blur-sm">
+                Bridging Algorithmic Intelligence & Interface Engineering
+            </h2>
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
+                Machine Learning Engineer <br> 
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-600">& Frontend Developer</span>
+            </h1>
+            <p class="mt-4 text-sm md:text-lg text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                I build intelligent models and wrap them in production-grade, highly interactive responsive web interfaces.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#projects" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-emerald-500 text-zinc-950 font-bold hover:bg-emerald-400 transition-all duration-300 shadow-[0_0_15px_rgba(16,185,129,0.3)] transform hover:-translate-y-1 text-center">
+                    View My Work
+                </a>
+                <a href="#contact" class="w-full sm:w-auto px-8 py-3.5 rounded-full border border-emerald-500 text-emerald-400 font-semibold hover:bg-emerald-500/10 transition-all duration-300 transform hover:-translate-y-1 text-center">
+                    Contact Me
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-28 bg-zinc-900/10 border-t border-zinc-900 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="text-center lg:text-left flex flex-col items-center lg:items-start">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">About <span class="text-emerald-400">Me</span></h2>
+                    <div class="w-12 h-1 bg-emerald-500 rounded-full mb-8"></div>
+                    <p class="text-zinc-400 leading-relaxed mb-6 text-base md:text-lg">
+                        I hold a <strong class="text-zinc-200 font-medium">B.S. in Information Technology</strong>, structuring my expertise around the intersection of complex architectural data engineering and client frontend programming.
+                    </p>
+                    <p class="text-zinc-400 leading-relaxed mb-8">
+                        My philosophy is that complex back-end statistical systems shouldn't remain stuck behind a terminal screen. I close this loop by deploying scalable predictive pipelines and building intuitive, visually captivating, human-centric web applications around them.
+                    </p>
+                    <div class="inline-flex items-center text-emerald-400 font-medium bg-zinc-900/80 border border-zinc-800 px-5 py-3 rounded-xl">
+                        <i class="fa-solid fa-graduation-cap mr-3 text-xl"></i>
+                        B.S. Information Technology
+                    </div>
+                </div>
+                
+                <div class="relative flex justify-center items-center h-[400px]">
+                    <div class="w-72 h-72 md:w-80 md:h-80 border border-zinc-800 rounded-full absolute animate-[spin_20s_linear_infinite]">
+                        <div class="absolute top-0 left-1/2 w-4 h-4 bg-emerald-500 rounded-full -translate-x-1/2 -translate-y-1/2 shadow-[0_0_15px_#10b981]"></div>
+                        <div class="absolute bottom-0 left-1/2 w-3 h-3 bg-zinc-700 rounded-full -translate-x-1/2 translate-y-1/2"></div>
+                    </div>
+                    <div class="w-56 h-56 md:w-64 md:h-64 border border-emerald-500/20 rounded-full absolute animate-[spin_12s_linear_infinite_reverse]">
+                        <div class="absolute top-1/2 right-0 w-3 h-3 bg-emerald-400 rounded-full translate-x-1/2 -translate-y-1/2 shadow-[0_0_10px_#34d399]"></div>
+                    </div>
+                    <div class="w-44 h-44 md:w-52 md:h-52 rounded-full overflow-hidden border-2 border-emerald-500/40 p-1 bg-zinc-950 relative z-10 shadow-[0_0_30px_rgba(16,185,129,0.15)]">
+                        <img src="profile.jpeg" class="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-500 transform scale-105 hover:scale-100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-28 bg-zinc-950 border-t border-zinc-900 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">Engineering <span class="text-emerald-400">Services</span></h2>
+                <div class="w-16 h-1 bg-emerald-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="space-y-6 text-center lg:text-left">
+                    <h3 class="text-xl font-bold text-white flex items-center justify-center lg:justify-start mb-4 border-b border-zinc-900 pb-3">
+                        <i class="fa-solid fa-brain text-emerald-400 mr-3"></i> Machine Learning Solutions
+                    </h3>
+                    
+                    <div class="bg-zinc-900/40 border border-zinc-900 rounded-xl p-6 hover:border-emerald-500/20 transition duration-300">
+                        <h4 class="text-base font-bold text-zinc-100 mb-2">Predictive Modeling & Analytics</h4>
+                        <p class="text-zinc-400 text-xs leading-relaxed">Analyzing data trends to predict future outcomes (e.g., House Price Prediction, Sales Forecasting).
+</p>
+                    </div>
+                    <div class="bg-zinc-900/40 border border-zinc-900 rounded-xl p-6 hover:border-emerald-500/20 transition duration-300">
+                        <h4 class="text-base font-bold text-zinc-100 mb-2">Custom Machine Learning Solutions</h4>
+                        <p class="text-zinc-400 text-xs leading-relaxed">Designing and training tailored machine learning models to solve business problems using Regression, Classification, and Clustering algorithms.</p>
+                    </div>
+                    <div class="bg-zinc-900/40 border border-zinc-900 rounded-xl p-6 hover:border-emerald-500/20 transition duration-300">
+                        <h4 class="text-base font-bold text-zinc-100 mb-2">Deep Learning & Computer Vision</h4>
+                        <p class="text-zinc-400 text-xs leading-relaxed">Working with computer vision techniques for image processing, image classification, and object recognition while exploring the fundamentals of neural networks.</p>
+                    </div>
+                    <div class="bg-zinc-900/40 border border-zinc-900 rounded-xl p-6 hover:border-emerald-500/20 transition duration-300">
+                        <h4 class="text-base font-bold text-zinc-100 mb-2">NLP & Text Classification</h4>
+                        <p class="text-zinc-400 text-xs leading-relaxed">Working with text data, such as building automated email spam classifiers, performing sentiment analysis, and processing text for chatbot systems</p>
+                    </div>
+                    <div class="bg-zinc-900/40 border border-zinc-900 rounded-xl p-6 hover:border-emerald-500/20 transition duration-300">
+                        <h4 class="text-base font-bold text-zinc-100 mb-2">Model Integration & Deployment (API)</h4>
+                        <p class="text-zinc-400 text-xs leading-relaxed">Training ML models and integrating them into web applications using Flask, FastAPI, or Django to enable real-time predictions.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6 text-center lg:text-left">
+                    <h3 class="text-xl font-bold text-white flex items-center justify-center lg:justify-start mb-4 border-b border-zinc-900 pb-3">
+                        <i class="fa-solid fa-code text-teal-400 mr-3"></i> Frontend Development Services
+                    </h3>
+                    
+                    <div class="bg-zinc-900/40 border border-zinc-900 rounded-xl p-6 hover:border-teal-500/20 transition duration-300">
+                        <h4 class="text-base font-bold text-zinc-100 mb-2">Responsive Web Development</h4>
+                        <p class="text-zinc-400 text-xs leading-relaxed">Building responsive websites using HTML5, CSS3, and modern frameworks/libraries that work seamlessly across mobile, tablet, and desktop devices.</p>
+                    </div>
+                    <div class="bg-zinc-900/40 border border-zinc-900 rounded-xl p-6 hover:border-teal-500/20 transition duration-300">
+                        <h4 class="text-base font-bold text-zinc-100 mb-2">Single Page Applications (SPAs)</h4>
+                        <p class="text-zinc-400 text-xs leading-relaxed">Developing Single Page Applications (SPAs) with dynamic routing and real-time content updates to deliver fast, seamless, and interactive user experiences.</p>
+                    </div>
+                    <div class="bg-zinc-900/40 border border-zinc-900 rounded-xl p-6 hover:border-teal-500/20 transition duration-300">
+                        <h4 class="text-base font-bold text-zinc-100 mb-2">Interactive Data Dashboards</h4>
+                        <p class="text-zinc-400 text-xs leading-relaxed">Converting ML model outputs and complex data into user-friendly charts, graphs, and responsive dashboards (which make data science projects more attractive).</p>
+                    </div>
+                    <div class="bg-zinc-900/40 border border-zinc-900 rounded-xl p-6 hover:border-teal-500/20 transition duration-300">
+                        <h4 class="text-base font-bold text-zinc-100 mb-2">UI/UX to Code Conversion</h4>
+                        <p class="text-zinc-400 text-xs leading-relaxed">Converting design tool mockups and wireframes (Figma/Adobe XD) into pixel-perfect, clean, and semantic frontend code.</p>
+                    </div>
+                    <div class="bg-zinc-900/40 border border-zinc-900 rounded-xl p-6 hover:border-teal-500/20 transition duration-300">
+                        <h4 class="text-base font-bold text-zinc-100 mb-2">API Integration & State Management</h4>
+                        <p class="text-zinc-400 text-xs leading-relaxed">Integrating backend APIs and third-party services with the frontend, and efficiently managing application state.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-28 bg-zinc-900/10 border-t border-zinc-900 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">Technical <span class="text-emerald-400">Expertise</span></h2>
+                <div class="w-16 h-1 bg-emerald-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center justify-center md:justify-start"><i class="fa-solid fa-brain text-emerald-400 mr-2"></i> ML & Data Stack</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold text-zinc-400 mb-2"><span>Python Programming & Data Handling (Pandas, NumPy)</span><span>90%</span></div>
+                            <div class="w-full bg-zinc-900 rounded-full h-2 border border-zinc-800"><div class="bg-emerald-500 h-full rounded-full" style="width: 90%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold text-zinc-400 mb-2"><span>Data Preprocessing & Feature Engineering</span><span>85%</span></div>
+                            <div class="w-full bg-zinc-900 rounded-full h-2 border border-zinc-800"><div class="bg-emerald-500 h-full rounded-full" style="width: 85%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold text-zinc-400 mb-2"><span>Scikit-Learn (Predictive Design)</span><span>88%</span></div>
+                            <div class="w-full bg-zinc-900 rounded-full h-2 border border-zinc-800"><div class="bg-emerald-500 h-full rounded-full" style="width: 88%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold text-zinc-400 mb-2"><span>XGBoost & Statistical Data Pipelines</span><span>80%</span></div>
+                            <div class="w-full bg-zinc-900 rounded-full h-2 border border-zinc-800"><div class="bg-emerald-500 h-full rounded-full" style="width: 80%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center justify-center md:justify-start"><i class="fa-solid fa-code text-teal-400 mr-2"></i> UI & Frontend Web Stack</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold text-zinc-400 mb-2"><span>HTML5 / CSS3 Semantic Core</span><span>95%</span></div>
+                            <div class="w-full bg-zinc-900 rounded-full h-2 border border-zinc-800"><div class="bg-teal-400 h-full rounded-full" style="width: 95%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold text-zinc-400 mb-2"><span>JavaScript (ES6+) Fundamentals</span><span>85%</span></div>
+                            <div class="w-full bg-zinc-900 rounded-full h-2 border border-zinc-800"><div class="bg-teal-400 h-full rounded-full" style="width: 85%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold text-zinc-400 mb-2"><span>Responsive Web Design (Flexbox & Grid)</span><span>92%</span></div>
+                            <div class="w-full bg-zinc-900 rounded-full h-2 border border-zinc-800"><div class="bg-teal-400 h-full rounded-full" style="width: 92%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold text-zinc-400 mb-2"><span>Component-Based UI Development</span><span>90%</span></div>
+                            <div class="w-full bg-zinc-900 rounded-full h-2 border border-zinc-800"><div class="bg-teal-400 h-full rounded-full" style="width: 90%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-28 bg-zinc-950 border-t border-zinc-900 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">Featured <span class="text-emerald-400">Projects</span></h2>
+                <div class="w-16 h-1 bg-emerald-500 mx-auto rounded-full mb-10"></div>
+                
+                <div class="inline-flex p-1 bg-zinc-900 rounded-full border border-zinc-800 max-w-full overflow-x-auto">
+                    <button onclick="filterProjects('all')" id="tab-all" class="px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-emerald-500 text-zinc-950">All</button>
+                    <button onclick="filterProjects('ml')" id="tab-ml" class="px-6 py-2 rounded-full text-sm font-semibold text-zinc-400 hover:text-white transition-all duration-300">Machine Learning</button>
+                    <button onclick="filterProjects('web')" id="tab-web" class="px-6 py-2 rounded-full text-sm font-semibold text-zinc-400 hover:text-white transition-all duration-300">Web Development</button>
+                </div>
+            </div>
+
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500">
+                <div class="project-card bg-zinc-900 border border-zinc-800 hover:border-emerald-500/40 transition-all duration-300 rounded-xl overflow-hidden flex flex-col group transform hover:-translate-y-1" data-category="ml">
+                    <div class="h-44 overflow-hidden relative"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" alt="Digit Rec" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-500"></div>
+                    <div class="p-6 flex flex-col flex-grow text-center md:text-left items-center md:items-start">
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-emerald-400 transition">Digit Recognition Model</h3>
+                        <p class="text-zinc-400 text-xs leading-relaxed mb-6 flex-grow">A machine learning-based digit recognition system that classifies handwritten digits (0–9) using a neural network trained on the MNIST dataset. It applies image preprocessing and accurately predicts digits from unseen images.</p>
+                        <div class="flex flex-wrap justify-center md:justify-start gap-1.5 mt-auto"><span class="bg-zinc-950 text-zinc-400 text-[10px] font-mono px-2 py-1 rounded border border-zinc-800">TensorFlow</span><span class="bg-zinc-950 text-zinc-400 text-[10px] font-mono px-2 py-1 rounded border border-zinc-800">MNIST</span></div>
+                    </div>
+                </div>
+
+                <div class="project-card bg-zinc-900 border border-zinc-800 hover:border-emerald-500/40 transition-all duration-300 rounded-xl overflow-hidden flex flex-col group transform hover:-translate-y-1" data-category="ml">
+                    <div class="h-44 overflow-hidden relative"><img src="https://images.unsplash.com/photo-1543362906-acfc16c67564?auto=format&fit=crop&w=600&q=80" alt="Diet Rec" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-500"></div>
+                    <div class="p-6 flex flex-col flex-grow text-center md:text-left items-center md:items-start">
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-emerald-400 transition">Diet Recommendation System</h3>
+                        <p class="text-zinc-400 text-xs leading-relaxed mb-6 flex-grow">A machine learning-based system that provides personalized diet recommendations based on user health and lifestyle inputs. The model uses supervised learning algorithms to predict suitable diet plans.</p>
+                        <div class="flex flex-wrap justify-center md:justify-start gap-1.5 mt-auto"><span class="bg-zinc-950 text-zinc-400 text-[10px] font-mono px-2 py-1 rounded border border-zinc-800">Scikit-Learn</span><span class="bg-zinc-950 text-zinc-400 text-[10px] font-mono px-2 py-1 rounded border border-zinc-800">Python</span></div>
+                    </div>
+                </div>
+
+                <div class="project-card bg-zinc-900 border border-zinc-800 hover:border-emerald-500/40 transition-all duration-300 rounded-xl overflow-hidden flex flex-col group transform hover:-translate-y-1" data-category="ml">
+                    <div class="h-44 overflow-hidden relative"><img src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&w=600&q=80" alt="Spam" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-500"></div>
+                    <div class="p-6 flex flex-col flex-grow text-center md:text-left items-center md:items-start">
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-emerald-400 transition">Spam Email Classification</h3>
+                        <p class="text-zinc-400 text-xs leading-relaxed mb-6 flex-grow">A machine learning-based NLP project that classifies SMS/email messages as spam or not spam (ham). The system uses TF-IDF vectorization for text feature extraction and a Multinomial Naive Bayes model for accurate text classification.</p>
+                        <div class="flex flex-wrap justify-center md:justify-start gap-1.5 mt-auto"><span class="bg-zinc-950 text-zinc-400 text-[10px] font-mono px-2 py-1 rounded border border-zinc-800">NLP</span><span class="bg-zinc-950 text-zinc-400 text-[10px] font-mono px-2 py-1 rounded border border-zinc-800">Naive Bayes</span></div>
+                    </div>
+                </div>
+
+                <div class="project-card bg-zinc-900 border border-zinc-800 hover:border-emerald-500/40 transition-all duration-300 rounded-xl overflow-hidden flex flex-col group transform hover:-translate-y-1" data-category="ml">
+                    <div class="h-44 overflow-hidden relative"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80" alt="House" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-500"></div>
+                    <div class="p-6 flex flex-col flex-grow text-center md:text-left items-center md:items-start">
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-emerald-400 transition">House Price Prediction</h3>
+                        <p class="text-zinc-400 text-xs leading-relaxed mb-6 flex-grow">A machine learning regression model that predicts house prices using the California Housing dataset. It applies feature engineering and uses an XGBoost Regressor pipeline to generate accurate and reliable predictions.</p>
+                        <div class="flex flex-wrap justify-center md:justify-start gap-1.5 mt-auto"><span class="bg-zinc-950 text-zinc-400 text-[10px] font-mono px-2 py-1 rounded border border-zinc-800">XGBoost</span><span class="bg-zinc-950 text-zinc-400 text-[10px] font-mono px-2 py-1 rounded border border-zinc-800">Regression</span></div>
+                    </div>
+                </div>
+
+                <div class="project-card bg-zinc-900 border border-zinc-800 hover:border-emerald-500/40 transition-all duration-300 rounded-xl overflow-hidden flex flex-col group transform hover:-translate-y-1" data-category="ml">
+                    <div class="h-44 overflow-hidden relative"><img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=600&q=80" alt="Iris" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-500"></div>
+                    <div class="p-6 flex flex-col flex-grow text-center md:text-left items-center md:items-start">
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-emerald-400 transition">Iris Flower Classification</h3>
+                        <p class="text-zinc-400 text-xs leading-relaxed mb-6 flex-grow">A machine learning model that classifies iris flower species using petal and sepal features. It uses a Random Forest Classifier with basic preprocessing and achieves high accuracy.</p>
+                        <div class="flex flex-wrap justify-center md:justify-start gap-1.5 mt-auto"><span class="bg-zinc-950 text-zinc-400 text-[10px] font-mono px-2 py-1 rounded border border-zinc-800">Classification</span><span class="bg-zinc-950 text-zinc-400 text-[10px] font-mono px-2 py-1 rounded border border-zinc-800">SVM</span></div>
+                    </div>
+                </div>
+
+                <div class="project-card bg-zinc-900 border border-zinc-800 hover:border-emerald-500/40 transition-all duration-300 rounded-xl overflow-hidden flex flex-col group transform hover:-translate-y-1" data-category="web">
+                    <div class="h-44 overflow-hidden relative"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="DietReco" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-500"></div>
+                    <div class="p-6 flex flex-col flex-grow text-center md:text-left items-center md:items-start">
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-emerald-400 transition">DietReco Web Application</h3>
+                        <p class="text-zinc-400 text-xs leading-relaxed mb-6 flex-grow">A web-based dietary recommendation system that generates personalized diet plans using a rule-based algorithm. The system includes a BMI calculator, blog section for nutrition content, and allows users to view and download customized diet plans.</p>
+                        <div class="flex flex-wrap justify-center md:justify-start gap-1.5 mt-auto"><span class="bg-emerald-500/10 text-emerald-400 text-[10px] font-mono px-2 py-1 rounded border border-emerald-500/20">ML Web App</span><span class="bg-zinc-950 text-zinc-400 text-[10px] font-mono px-2 py-1 rounded border border-zinc-800">Tailwind</span></div>
+                    </div>
+                </div>
+
+                <div class="project-card bg-zinc-900 border border-zinc-800 hover:border-teal-500/40 transition-all duration-300 rounded-xl overflow-hidden flex flex-col group transform hover:-translate-y-1" data-category="web">
+                    <div class="h-44 overflow-hidden relative"><img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=600&q=80" alt="Flavor Hub" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-500"></div>
+                    <div class="p-6 flex flex-col flex-grow text-center md:text-left items-center md:items-start">
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-teal-400 transition">Flavor Hub</h3>
+                        <p class="text-zinc-400 text-xs leading-relaxed mb-6 flex-grow">A web-based food ordering application that allows users to browse menus, add items to cart, and place orders. It includes dynamic cart management with automatic total calculation and a smooth checkout process with multiple payment options.</p>
+                        <div class="flex flex-wrap justify-center md:justify-start gap-1.5 mt-auto"><span class="bg-teal-500/10 text-teal-400 text-[10px] font-mono px-2 py-1 rounded border border-teal-500/20">UX Architecture</span><span class="bg-zinc-950 text-zinc-400 text-[10px] font-mono px-2 py-1 rounded border border-zinc-800">JavaScript</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-28 bg-zinc-950 border-t border-zinc-900 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="text-center lg:text-left flex flex-col items-center lg:items-start">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">Let's <span class="text-emerald-400">Connect</span></h2>
+                    <p class="text-zinc-400 mb-8 leading-relaxed max-w-md lg:max-w-none">Whether you need help with model deployment, custom analytics pipelines, or data-driven interface engineering, drop me a message.</p>
+                    
+                    <div class="space-y-4 w-full max-w-sm lg:max-w-none flex flex-col items-center lg:items-start">
+                        <div class="flex items-center group cursor-pointer w-full justify-center lg:justify-start">
+                            <div class="w-11 h-11 bg-zinc-900 border border-zinc-800 rounded-full flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-zinc-950 transition duration-300 mr-4 shrink-0"><i class="fa-solid fa-envelope text-sm"></i></div>
+                            <span class="text-zinc-300 group-hover:text-emerald-400 transition text-sm">aribaamin36@gmail.com</span>
+                        </div>
+                        <div class="flex items-center group cursor-pointer w-full justify-center lg:justify-start">
+                            <div class="w-11 h-11 bg-zinc-900 border border-zinc-800 rounded-full flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-zinc-950 transition duration-300 mr-4 shrink-0"><i class="fa-solid fa-phone text-sm"></i></div>
+                            <span class="text-zinc-300 group-hover:text-emerald-400 transition text-sm">+92 326 7493155</span>
+                        </div>
+                        <div class="flex items-center group cursor-pointer w-full justify-center lg:justify-start">
+                            <div class="w-11 h-11 bg-zinc-900 border border-zinc-800 rounded-full flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-zinc-950 transition duration-300 mr-4 shrink-0"><i class="fa-brands fa-github text-sm"></i></div>
+                            <span class="text-zinc-300 group-hover:text-emerald-400 transition text-sm">https://github.com/ariba-amin</span>
+                        </div>
+                        <div class="flex items-center group cursor-pointer w-full justify-center lg:justify-start">
+                            <div class="w-11 h-11 bg-zinc-900 border border-zinc-800 rounded-full flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-zinc-950 transition duration-300 mr-4 shrink-0"><i class="fa-brands fa-linkedin-in text-sm"></i></div>
+                            <span class="text-zinc-300 group-hover:text-emerald-400 transition text-sm">https://www.linkedin.com/in/ariba-amin-038327368?utm_source=share_via&utm_content=profile&utm_medium=member_android</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 sm:p-8 shadow-xl w-full max-w-xl mx-auto lg:mx-0">
+                    <form action="#" method="POST" class="space-y-4 text-left">
+                        <div>
+                            <label for="name" class="block text-xs font-semibold text-zinc-400 mb-1.5">Name</label>
+                            <input type="text" id="name" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-3 text-zinc-100 text-sm focus:outline-none focus:border-emerald-500 transition-colors" placeholder="John Doe" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-xs font-semibold text-zinc-400 mb-1.5">Email ID</label>
+                            <input type="email" id="email" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-3 text-zinc-100 text-sm focus:outline-none focus:border-emerald-500 transition-colors" placeholder="john@example.com" required>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-xs font-semibold text-zinc-400 mb-1.5">Subject</label>
+                            <input type="text" id="subject" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-3 text-zinc-100 text-sm focus:outline-none focus:border-emerald-500 transition-colors" placeholder="Project Inquiry / Opportunity" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-xs font-semibold text-zinc-400 mb-1.5">Message</label>
+                            <textarea id="message" rows="4" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-3 text-zinc-100 text-sm focus:outline-none focus:border-emerald-500 transition-colors resize-none" placeholder="How can I help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-emerald-500 text-zinc-950 font-bold py-3 rounded-lg hover:bg-emerald-400 transition duration-300 shadow-md text-sm mt-2">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-zinc-900 bg-zinc-950 text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <a href="#home" class="text-xl font-bold text-white tracking-tighter mb-4 inline-block">Dev<span class="text-emerald-400">ML</span>.</a>
+            <p class="text-zinc-600 text-xs font-medium tracking-wide">&copy; <span id="year"></span> All rights reserved. Data Architecture & UI Design.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = btn.querySelector('i');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            icon.className = menu.classList.contains('hidden') ? 'fa-solid fa-bars text-2xl' : 'fa-solid fa-xmark text-2xl';
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => { menu.classList.add('hidden'); icon.className = 'fa-solid fa-bars text-2xl'; });
+        });
+
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('#projects button');
+            buttons.forEach(b => b.className = "px-6 py-2 rounded-full text-sm font-semibold text-zinc-400 hover:text-white transition-all duration-300");
+            const selectedTab = document.getElementById(`tab-${category}`);
+            if(selectedTab) selectedTab.className = "px-6 py-2 rounded-full text-sm font-semibold bg-emerald-500 text-zinc-950 transition-all duration-300";
+
+            cards.forEach(card => {
+                card.style.opacity = '0'; card.style.transform = 'scale(0.95) translateY(10px)';
+                setTimeout(() => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'flex';
+                        setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'scale(1) translateY(0)'; }, 50);
+                    } else { card.style.display = 'none'; }
+                }, 200);
+            });
+        }
+
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+    </script>
+</body>
+</html>
